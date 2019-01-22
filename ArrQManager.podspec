@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     end
      s.subspec 'YYYYIconImgManager' do |ss|
         ss.ios.deployment_target = '8.0'
-        ss.source_files = 'ArrQManagerOne/ArrQManagerOne/ArrQManager/YYYYIconImgManager/YYIconImgManagerHeader.h','ArrQManagerOne/ArrQManagerOne/ArrQManager/YYYYIconImgManager/**/**.{h,m}'
+        ss.source_files = 'ArrQManagerOne/ArrQManagerOne/ArrQManager/YYIconImgManager/YYIconImgManagerHeader.h','ArrQManagerOne/ArrQManagerOne/ArrQManager/YYIconImgManager/**/**.{h,m}'
     end
      s.subspec 'YYBaseVC' do |ss|
         ss.ios.deployment_target = '8.0'
