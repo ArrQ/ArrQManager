@@ -10,9 +10,13 @@
 
 @interface YYTimeManager (){
     
-    dispatch_source_t _timer;
-    
+    dispatch_source_t _timerOne;
+    NSInteger times;
+
 }
+
+
+
 
 @end
 
@@ -35,15 +39,18 @@
 }
 
 #pragma mark 倒计时 验证码 ，方法
-
-- (void)getDaoJiShiWithTime:(NSInteger)times andFinishBlock:(void (^)(NSInteger))FinishBlock{
+- (void)getDaoJiShiWithTimerOne:(dispatch_source_t)timerOne andTime:(NSInteger)times andFinishBlock:(void (^)(NSInteger))FinishBlock{
     
-    _timer = nil;
+    if (times > 0) {
+        return;
+    }
+    
+    timerOne = nil;
     __block NSInteger second = times;
     dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
-    dispatch_source_set_event_handler(_timer, ^{
+    timerOne = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
+    dispatch_source_set_timer(timerOne, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
+    dispatch_source_set_event_handler(timerOne, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             if (second >= 0) {
                 
@@ -53,32 +60,36 @@
             }
             else
             {
-                dispatch_source_cancel(self->_timer);
-                
+                dispatch_source_cancel(timerOne);
                 
             }
             
         });
         
     });
-    dispatch_resume(_timer);
+    dispatch_resume(timerOne);
+   
     
 }
 
-
-
 # pragma mark --- 时分秒
-- (void)getTimeHmsMoreWithSecond:(NSInteger)allTime andNetxSecond:(NSInteger)nextSecond andFinishingBlock:(void (^)(NSString *, NSString *, NSString *))FinishingBlock andNextSecondBlcok:(void (^)(NSInteger))NextSecondBlcok andFinishCompleted:(void (^)(NSInteger))FinishBlock{
+
+- (void)getTimeHmsMoreWithTimerOne:(dispatch_source_t)timerOne andSecond:(NSInteger)allTime andNetxSecond:(NSInteger)nextSecond andFinishingBlock:(void (^)(NSString *, NSString *, NSString *))FinishingBlock andNextSecondBlcok:(void (^)(NSInteger))NextSecondBlcok andFinishCompleted:(void (^)(NSInteger))FinishBlock{
+    
+    
+    if (allTime > 0) {
+        return;
+    }
     
     __block NSInteger second = allTime;
     __block NSInteger YYnextSecond = 0;
-
-    _timer = nil;
-    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
     
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
-    dispatch_source_set_event_handler(_timer, ^{
+    timerOne = nil;
+    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    timerOne = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
+    
+    dispatch_source_set_timer(timerOne, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
+    dispatch_source_set_event_handler(timerOne, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             if (second >= 0) {
                 
@@ -128,7 +139,7 @@
                 YYnextSecond++;
                 
                 if(YYnextSecond == nextSecond){
-                
+                    
                     NextSecondBlcok(YYnextSecond);
                     
                 }
@@ -138,32 +149,35 @@
             else
             {
                 //这句话必须写否则会出问题
-                dispatch_source_cancel(self->_timer);
+                dispatch_source_cancel(timerOne);
                 
             }
         });
         
     });
     //启动源
-    dispatch_resume(_timer);
-   
+    dispatch_resume(timerOne);
+    
 }
+
 
 
 # pragma mark --- 分秒
 
-- (void)getMoreTimeMsWithSecond:(NSInteger)allTime andNetxSecond:(NSInteger)nextSecond andPlayingBlcok:(void (^)(NSString *, NSString *))PlayingBlcok andNextSecondBlcok:(void (^)(NSInteger))NextSecondBlcok andFinishCompleted:(void (^)(NSInteger))FinishBlock{
+- (void)getMoreTimeMsWithTimerOne:(dispatch_source_t)timerOne andSecond:(NSInteger)allTime andNetxSecond:(NSInteger)nextSecond andPlayingBlcok:(void (^)(NSString *, NSString *))PlayingBlcok andNextSecondBlcok:(void (^)(NSInteger))NextSecondBlcok andFinishCompleted:(void (^)(NSInteger))FinishBlock{
     
-    
+    if (allTime > 0) {
+        return;
+    }
     __block NSInteger YYnextSecond = 0;
-
-    __block NSInteger second = allTime;
-    _timer = nil;
-    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
     
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
-    dispatch_source_set_event_handler(_timer, ^{
+    __block NSInteger second = allTime;
+    timerOne = nil;
+    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    timerOne = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
+    
+    dispatch_source_set_timer(timerOne, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
+    dispatch_source_set_event_handler(timerOne, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if (second >= 0) {
@@ -208,19 +222,19 @@
                     NextSecondBlcok(YYnextSecond);
                     
                 }
-               
+                
             }
             else
             {
                 //这句话必须写否则会出问题
-                dispatch_source_cancel(self->_timer);
+                dispatch_source_cancel(timerOne);
                 
             }
         });
         
     });
     //启动源
-    dispatch_resume(_timer);
+    dispatch_resume(timerOne);
     
     
     
@@ -228,20 +242,26 @@
     
 }
 
+
+
 # pragma mark --- 区别 时分秒 和 分秒
 
-- (void)getMoreTimeShowType:(bg_ShowStyle)type andSecond:(NSInteger)allTime andNetxSecond:(NSInteger)nextSecond andPlayingBlcok:(void (^)(NSString *, NSString *, NSString *))PlayingBlcok andNextSecondBlcok:(void (^)(NSInteger))NextSecondBlcok andFinishCompleted:(void (^)(NSInteger))FinishBlock{
+- (void)getMoreTimeShowType:(bg_ShowStyle)type andTimerOne:(dispatch_source_t)timerOne andSecond:(NSInteger)allTime andNetxSecond:(NSInteger)nextSecond andPlayingBlcok:(void (^)(NSString *, NSString *, NSString *))PlayingBlcok andNextSecondBlcok:(void (^)(NSInteger))NextSecondBlcok andFinishCompleted:(void (^)(NSInteger))FinishBlock{
     
+    
+    if (allTime > 0) {
+        return;
+    }
     __block NSInteger YYnextSecond = 0;
-
-    __block NSInteger second = allTime;
-
-    _timer = nil;
-    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
     
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
-    dispatch_source_set_event_handler(_timer, ^{
+    __block NSInteger second = allTime;
+    
+    timerOne = nil;
+    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    timerOne = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
+    
+    dispatch_source_set_timer(timerOne, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
+    dispatch_source_set_event_handler(timerOne, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             if (second >= 0) {
                 
@@ -343,14 +363,14 @@
             else
             {
                 //这句话必须写否则会出问题
-                dispatch_source_cancel(self->_timer);
+                dispatch_source_cancel(timerOne);
                 
             }
         });
         
     });
     //启动源
-    dispatch_resume(_timer);
+    dispatch_resume(timerOne);
     
     
     
@@ -359,120 +379,7 @@
 }
 
 
-- (void)getMoreTimeShowType:(bg_ShowStyle)type andSecond:(NSInteger)allTime andPlayingBlcok:(void (^)(NSString *, NSString *, NSString *))PlayingBlcok andFinishCompleted:(void (^)(NSInteger))FinishBlock{
-    
-    _timer = nil;
-    __block NSInteger second = allTime;
-    dispatch_queue_t quene = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, quene);
-    
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), NSEC_PER_SEC * 1, 0);
-    dispatch_source_set_event_handler(_timer, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (second >= 0) {
-                
 
-                NSInteger hhNum ;
-                long MinNum ;
-                long SecNum ;
-                
-                if(type == 0){
-                    
-                    hhNum = second/3600;
-                    MinNum = (second%3600)/60;
-                    SecNum = second%60;
-                    NSString * hh;
-                    NSString * M;
-                    NSString * S;
-                    
-                    if (hhNum<10)
-                    {
-                        hh = [NSString stringWithFormat:@"0%@",@(hhNum)];
-                    }else
-                    {
-                        hh = [NSString stringWithFormat:@"%@",@(hhNum)];
-                    }
-                    if (MinNum<10)
-                    {
-                        M = [NSString stringWithFormat:@"0%ld",MinNum];
-                    }else
-                    {
-                        M = [NSString stringWithFormat:@"%ld",MinNum];
-                    }
-                    if (SecNum<10)
-                    {
-                        S = [NSString stringWithFormat:@"0%ld",SecNum];
-                    }else
-                    {
-                        S = [NSString stringWithFormat:@"%ld",SecNum];
-                    }
-                    
-                    
-                    PlayingBlcok(hh,M,S);
-                    
-                    
-                }else if (type ==1 ){
-                    
-                    //计算分秒
-                    MinNum = second/60;
-                    SecNum = second%60;
-                    
-                    
-                    
-                    
-                    NSString * M;
-                    NSString * S;
-                    
-                    
-                    if (MinNum<10)
-                    {
-                        M = [NSString stringWithFormat:@"0%ld",MinNum];
-                    }else
-                    {
-                        M = [NSString stringWithFormat:@"%ld",MinNum];
-                    }
-                    if (SecNum<10)
-                    {
-                        S = [NSString stringWithFormat:@"0%ld",SecNum];
-                    }else
-                    {
-                        S = [NSString stringWithFormat:@"%ld",SecNum];
-                    }
-                    
-                    
-                    PlayingBlcok(nil,M,S);
-                    
-                    
-                    
-                }
-                
-                
-                if(second == 0){
-                    
-                    FinishBlock(second);
-                    
-                }
-                
-                
-                second--;
-            }
-            else
-            {
-                //这句话必须写否则会出问题
-                dispatch_source_cancel(self->_timer);
-                
-            }
-        });
-        
-    });
-    //启动源
-    dispatch_resume(_timer);
-    
-    
-    
-    
-    
-}
 
 
 

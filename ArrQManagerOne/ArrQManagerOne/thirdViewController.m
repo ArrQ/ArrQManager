@@ -9,7 +9,12 @@
 #import "thirdViewController.h"
 #import "ArrQManagerHeader.h"
 
-@interface thirdViewController ()
+@interface thirdViewController (){
+    
+    dispatch_source_t _timeOne;
+
+    
+}
 
 @end
 
@@ -38,13 +43,24 @@
 - (void)getDao{
     
     
-    [[YYTimeManager shareManager] getDaoJiShiWithTime:10 andFinishBlock:^(NSInteger times) {
+//    [[YYTimeManager shareManager] getDaoJiShiWithTime:10 andFinishBlock:^(NSInteger times) {
+//
+//        if(times == 0){
+//
+//            [self getDao];
+//
+//        }
+//    }];
+    
+    
+    [[YYTimeManager shareManager] getDaoJiShiWithTime:10 andTimerOne:_timeOne andFinishBlock:^(NSInteger times) {
         
         if(times == 0){
             
             [self getDao];
             
         }
+        
     }];
     
     

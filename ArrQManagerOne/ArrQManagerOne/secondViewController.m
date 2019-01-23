@@ -10,7 +10,14 @@
 #import "ArrQManagerHeader.h"
 #import "thirdViewController.h"
 
-@interface secondViewController ()
+@interface secondViewController (){
+    
+    dispatch_source_t _timeOne;
+    dispatch_source_t _timeTwo;
+    NSInteger _timeOneNum;
+    NSInteger _timeTwoNum;
+
+}
 
 @end
 
@@ -54,9 +61,7 @@
     [self.view addSubview:button_right];
     
     
-    
-    
-    
+   
     
     
     
@@ -66,26 +71,48 @@
     
     [super viewWillAppear:animated];
     
+   
+  
     
+    _timeTwoNum = 10;
+    _timeOneNum = 10;
+
     [self getDao];
     
-    
-    
+    [self getDaotwo];
+
     
 }
 
 - (void)getDao{
     
-    
-    [[YYTimeManager shareManager] getDaoJiShiWithTime:10 andFinishBlock:^(NSInteger times) {
+
+    [[YYTimeManager shareManager] getDaoJiShiWithTime:_timeOneNum andTimerOne:_timeOne andFinishBlock:^(NSInteger times) {
         
         if(times == 0){
             
             [self getDao];
             
         }
+        
     }];
     
+    
+}
+
+
+- (void)getDaotwo{
+    
+
+    [[YYTimeManager shareManager] getDaoJiShiWithTime:_timeTwoNum andTimerOne:_timeTwo andFinishBlock:^(NSInteger times) {
+        
+        if(times == 0){
+            
+            [self getDaotwo];
+            
+        }
+        
+    }];
     
     
 }
@@ -114,6 +141,22 @@
     
     
 }
+
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+
+    _timeOneNum = 0;
+    _timeTwoNum = 0;
+
+    
+}
+
+
+
+
 
 
 @end

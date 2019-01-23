@@ -58,7 +58,7 @@
     [super viewWillAppear:animated];
     
     
-    [self getDao];
+//    [self getDao];
     
     
     
