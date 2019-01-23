@@ -12,5 +12,8 @@
 #import "NSDate+BgDate.h"
 #import "NSString+BgString.h"
 #import "NSMutableAttributedString+BgAttStr.h"
+#import "NSData+BgData.h"
+#import "NSArray+BgArray.h"
+#import "UIDevice+BgDevice.h"
 
 #endif /* YYCategoryHeader_h */

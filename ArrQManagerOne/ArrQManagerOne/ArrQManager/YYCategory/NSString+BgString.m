@@ -18,7 +18,7 @@
     NSDictionary *dicOne = [[NSBundle mainBundle] infoDictionary];
     
     NSString *currentVersion = [dicOne objectForKey:@"CFBundleShortVersionString"];
-    
+
     return currentVersion;
     
 }

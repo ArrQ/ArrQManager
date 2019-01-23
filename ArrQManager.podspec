@@ -35,31 +35,10 @@ Pod::Spec.new do |s|
         ss.ios.deployment_target = '8.0'
         ss.source_files = 'ArrQManagerOne/ArrQManagerOne/ArrQManager/YYCategory/YYCategoryHeader.h','ArrQManagerOne/ArrQManagerOne/ArrQManager/YYCategory/**/**.{h,m}'
     end
-    
+     s.subspec 'YYTimeManager' do |ss|
+        ss.ios.deployment_target = '8.0'
+        ss.source_files = 'ArrQManagerOne/ArrQManagerOne/ArrQManager/YYTimeManager/YYTimeManagerHeader.h','ArrQManagerOne/ArrQManagerOne/ArrQManager/YYTimeManager/**/**.{h,m}'
+    end
     
 end
-
-# /************ 版本更新维护 ***************/
-
-
-# git tag 1.0.1
-
-# git push origin 1.0.1
-
-# pod lib lint YYTooling.podspec --allow-warnings
-
-# pod trunk push YYTooling.podspec --allow-warnings
-# pod lib lint YYTooling.podspec --verbose(依赖库) 有错误提示时 用这个吧，记得添加依赖
-# 如果有引用到库framwork或C语言库的话必须使用
-
-# pod spec lint YYTooling.podspec --use-libraries // 验证
-
-# pod trunk push YYTooling.podspec --use-libraries           // 上传
-
-# pod trunk push YYTooling.podspec --allow-warnings --use-libraries   // 依赖库的时候用嘛
-
-
-# 或者
-# sh upload_pod_run.sh
-
 

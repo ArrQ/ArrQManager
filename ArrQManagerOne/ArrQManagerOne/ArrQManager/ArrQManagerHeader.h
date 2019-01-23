@@ -6,6 +6,7 @@
 //  Copyright © 2019年 ArrQ. All rights reserved.
 //
 
+
 #ifndef ArrQManagerHeader_h
 #define ArrQManagerHeader_h
 
@@ -13,8 +14,12 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-//bg_macro
+// bg_macro
 
+// APP
+#define bg_APP_InfoDic [[NSBundle mainBundle] infoDictionary]
+#define bg_APP_Version [bg_APP_InfoDic objectForKey:@"CFBundleShortVersionString"]
+#define bg_APP_Build [bg_APP_InfoDic objectForKey:@"CFBundleVersion"]
 
 // 屏幕高度适应设置****************
 
@@ -58,6 +63,10 @@
 //view tool
 #import "YYNoticeViewTool.h"
 #import "YYIconImgManagerHeader.h"
+
+//object tool
+#import "YYTimeManagerHeader.h"
+
 
 
 

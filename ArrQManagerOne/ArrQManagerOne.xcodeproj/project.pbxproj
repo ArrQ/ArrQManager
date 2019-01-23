@@ -21,6 +21,12 @@
 		8404C71E21F6DC31001B341C /* NSString+BgString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404C71021F6DC31001B341C /* NSString+BgString.m */; };
 		8404C71F21F6DC31001B341C /* YYNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404C71421F6DC31001B341C /* YYNoticeView.m */; };
 		8404C72021F6DC31001B341C /* YYIconImgManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404C71921F6DC31001B341C /* YYIconImgManager.m */; };
+		8404C72521F7016F001B341C /* NSData+BgData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404C72421F7016F001B341C /* NSData+BgData.m */; };
+		8404C72D21F708A4001B341C /* NSArray+BgArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404C72C21F708A4001B341C /* NSArray+BgArray.m */; };
+		845C76DC21F833E5000A33A0 /* UIDevice+BgDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C76DB21F833E5000A33A0 /* UIDevice+BgDevice.m */; };
+		845C76E021F83930000A33A0 /* YYTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C76DF21F83930000A33A0 /* YYTimeManager.m */; };
+		845C76E321F839D2000A33A0 /* secondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C76E221F839D2000A33A0 /* secondViewController.m */; };
+		845C76E621F83F39000A33A0 /* thirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845C76E521F83F39000A33A0 /* thirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +80,19 @@
 		8404C71921F6DC31001B341C /* YYIconImgManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYIconImgManager.m; sourceTree = "<group>"; };
 		8404C71A21F6DC31001B341C /* YYIconImgManagerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYIconImgManagerHeader.h; sourceTree = "<group>"; };
 		8404C72121F6DD8F001B341C /* ArrQManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrQManagerHeader.h; sourceTree = "<group>"; };
+		8404C72321F7016F001B341C /* NSData+BgData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+BgData.h"; sourceTree = "<group>"; };
+		8404C72421F7016F001B341C /* NSData+BgData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+BgData.m"; sourceTree = "<group>"; };
+		8404C72B21F708A4001B341C /* NSArray+BgArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+BgArray.h"; sourceTree = "<group>"; };
+		8404C72C21F708A4001B341C /* NSArray+BgArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BgArray.m"; sourceTree = "<group>"; };
+		845C76DA21F833E5000A33A0 /* UIDevice+BgDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+BgDevice.h"; sourceTree = "<group>"; };
+		845C76DB21F833E5000A33A0 /* UIDevice+BgDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+BgDevice.m"; sourceTree = "<group>"; };
+		845C76DE21F83930000A33A0 /* YYTimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTimeManager.h; sourceTree = "<group>"; };
+		845C76DF21F83930000A33A0 /* YYTimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTimeManager.m; sourceTree = "<group>"; };
+		845C76E121F839D2000A33A0 /* secondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = secondViewController.h; sourceTree = "<group>"; };
+		845C76E221F839D2000A33A0 /* secondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = secondViewController.m; sourceTree = "<group>"; };
+		845C76E421F83F39000A33A0 /* thirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thirdViewController.h; sourceTree = "<group>"; };
+		845C76E521F83F39000A33A0 /* thirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = thirdViewController.m; sourceTree = "<group>"; };
+		845C76E721F843CC000A33A0 /* YYTimeManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTimeManagerHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +147,10 @@
 				8404C6D421F6DB80001B341C /* AppDelegate.m */,
 				8404C6D621F6DB80001B341C /* ViewController.h */,
 				8404C6D721F6DB80001B341C /* ViewController.m */,
+				845C76E121F839D2000A33A0 /* secondViewController.h */,
+				845C76E221F839D2000A33A0 /* secondViewController.m */,
+				845C76E421F83F39000A33A0 /* thirdViewController.h */,
+				845C76E521F83F39000A33A0 /* thirdViewController.m */,
 				8404C70521F6DC31001B341C /* ArrQManager */,
 				8404C6D921F6DB80001B341C /* Main.storyboard */,
 				8404C6DC21F6DB80001B341C /* Assets.xcassets */,
@@ -160,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				8404C72121F6DD8F001B341C /* ArrQManagerHeader.h */,
+				845C76DD21F83930000A33A0 /* YYTimeManager */,
 				8404C70621F6DC31001B341C /* YYBaseVC */,
 				8404C70A21F6DC31001B341C /* YYCategory */,
 				8404C71221F6DC31001B341C /* YYNoticeViewTool */,
@@ -181,13 +205,19 @@
 		8404C70A21F6DC31001B341C /* YYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				8404C71121F6DC31001B341C /* YYCategoryHeader.h */,
 				8404C70B21F6DC31001B341C /* NSDate+BgDate.h */,
 				8404C70C21F6DC31001B341C /* NSDate+BgDate.m */,
 				8404C70D21F6DC31001B341C /* NSMutableAttributedString+BgAttStr.h */,
 				8404C70E21F6DC31001B341C /* NSMutableAttributedString+BgAttStr.m */,
 				8404C70F21F6DC31001B341C /* NSString+BgString.h */,
 				8404C71021F6DC31001B341C /* NSString+BgString.m */,
-				8404C71121F6DC31001B341C /* YYCategoryHeader.h */,
+				8404C72B21F708A4001B341C /* NSArray+BgArray.h */,
+				8404C72C21F708A4001B341C /* NSArray+BgArray.m */,
+				8404C72321F7016F001B341C /* NSData+BgData.h */,
+				8404C72421F7016F001B341C /* NSData+BgData.m */,
+				845C76DA21F833E5000A33A0 /* UIDevice+BgDevice.h */,
+				845C76DB21F833E5000A33A0 /* UIDevice+BgDevice.m */,
 			);
 			path = YYCategory;
 			sourceTree = "<group>";
@@ -210,6 +240,16 @@
 				8404C71A21F6DC31001B341C /* YYIconImgManagerHeader.h */,
 			);
 			path = YYIconImgManager;
+			sourceTree = "<group>";
+		};
+		845C76DD21F83930000A33A0 /* YYTimeManager */ = {
+			isa = PBXGroup;
+			children = (
+				845C76DE21F83930000A33A0 /* YYTimeManager.h */,
+				845C76DF21F83930000A33A0 /* YYTimeManager.m */,
+				845C76E721F843CC000A33A0 /* YYTimeManagerHeader.h */,
+			);
+			path = YYTimeManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,14 +383,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8404C71F21F6DC31001B341C /* YYNoticeView.m in Sources */,
+				845C76E021F83930000A33A0 /* YYTimeManager.m in Sources */,
+				845C76E321F839D2000A33A0 /* secondViewController.m in Sources */,
 				8404C72021F6DC31001B341C /* YYIconImgManager.m in Sources */,
 				8404C71B21F6DC31001B341C /* BgBaseViewController.m in Sources */,
+				8404C72D21F708A4001B341C /* NSArray+BgArray.m in Sources */,
+				8404C72521F7016F001B341C /* NSData+BgData.m in Sources */,
 				8404C71C21F6DC31001B341C /* NSDate+BgDate.m in Sources */,
 				8404C6D821F6DB80001B341C /* ViewController.m in Sources */,
 				8404C71E21F6DC31001B341C /* NSString+BgString.m in Sources */,
+				845C76DC21F833E5000A33A0 /* UIDevice+BgDevice.m in Sources */,
 				8404C6E321F6DB80001B341C /* main.m in Sources */,
 				8404C6D521F6DB80001B341C /* AppDelegate.m in Sources */,
 				8404C71D21F6DC31001B341C /* NSMutableAttributedString+BgAttStr.m in Sources */,
+				845C76E621F83F39000A33A0 /* thirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
